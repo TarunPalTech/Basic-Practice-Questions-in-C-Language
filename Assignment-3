@@ -1,0 +1,129 @@
+                          Assignment – 3
+                      Operators in C Language
+1. Write a program to calculate size of a character constant.
+#include<stdio.h>
+int main(){
+    int x;
+    x=sizeof('A');
+    printf("%d",x);
+    return 0;
+}
+2. Write a program to calculate size of a real constant.
+#include<stdio.h>
+int main(){
+    int x;
+    x=sizeof(3.5);
+    printf("%d",x);
+    return 0;
+}
+
+3. Write a program with one char type variable. Assign ‘A’ in the variable. Now change the value of variable from ‘A’ to ‘B’ using increment operator.
+#include<stdio.h>
+int main(){
+    char x='A',y;
+    y=++x;
+    printf("Now Character is %c.",y);
+    return 0;
+}
+4. Write a program to print unit digit of a given number.
+#include<stdio.h>
+int main(){
+    int x=3048,y;
+    y=x%10;
+    printf("Unit digit is %d.",y);
+    return 0;
+}
+5. Write a program to print a given number without last digit.
+#include<stdio.h>
+int main(){
+    int x=3048,y;
+    y=x/10;
+    printf("Number without last digit is %d.",y);
+    return 0;
+}
+6. Write a program to swap values of two int variables.
+#include<stdio.h>
+int main(){
+    int x=10,y=20,z;
+    printf("Numbers before swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    z=x;
+    x=y;
+    y=z;
+    printf("Numbers after swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    return 0;
+}
+7. Write a program to swap values of two int variables without using third variable.
+#include<stdio.h>
+int main(){
+    int x=10,y=20;
+    printf("Numbers before swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    x=x+y;
+    y=x-y;
+    x=x-y;
+    printf("Numbers after swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    return 0;
+}
+-----------------------------------------------------------------------------------------
+#include<stdio.h>
+int main()
+{
+    int x=10,y=20;
+    printf("Numbers before swapping:\n");
+    printf("x=10\ny=20\n");
+    x=x+y-(y=x);
+    printf("Values after swapping:\n");
+    printf("x=%d\ny=%d",x,y);
+    return 0;
+}
+
+8. Write a program to swap values of two int variables without using third variable and without using +,- operators.
+#include<stdio.h>
+int main(){
+    int x=10,y=20;
+    printf("Numbers before swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    x=x*y;
+    y=x/y;
+    x=x/y;
+    printf("Numbers after swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    return 0;
+}
+9. Write a program to swap values of two int variables without using third variable and arithmetic operators.
+#include<stdio.h>
+int main(){
+    int x=10,y=20;
+    printf("Numbers before swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    x=x^y;
+    y=x^y;
+    x=x^y;
+    printf("Numbers after swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    return 0;
+}
+10. Write a program to swap values of two int variables in single line arithmetic expression.
+#include<stdio.h>
+int main(){
+    int x=10,y=20,z;
+    printf("Numbers before swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    z=x;x=y;y=z;   //x=x+y-(y=x);
+    printf("Numbers after swapping:\n");
+    printf("x=%d\n",x);
+    printf("y=%d\n",y);
+    return 0;
+}
