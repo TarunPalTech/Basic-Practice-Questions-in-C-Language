@@ -1,0 +1,158 @@
+                          Assignment – 2
+1. Write a program to calculate average of three integers. Numbers are given by the user.
+#include<stdio.h>
+int main(){
+    int a,b,c;
+    float avg;
+    printf("Enter first number:");
+    scanf("%d",&a);
+    printf("Enter second number:");
+    scanf("%d",&b);
+    printf("Enter third number:");
+    scanf("%d",&c);
+    avg=(a+b+c)/3.0;   //Used to get the float value.
+    printf("Average is: %f.",avg);
+    return 0;
+}
+2. Write a program to calculate circumference of a circle.
+#include<stdio.h>
+int main(){
+    float r,c;
+    printf("Enter radius:");
+    scanf("%f",&r);
+    c=2*3.14*r; 
+    printf("Circumference is %f.",c);
+    return 0;
+}
+3. Write a program to calculate simple interest.
+#include<stdio.h>
+int main(){
+    int p;
+    float r,t,si;
+    printf("Enter principle amount:");
+    scanf("%d",&p);
+    printf("Enter period of time:");
+    scanf("%f",&t);
+    printf("Enter rate of interest:");
+    scanf("%f",&r);
+    si=p*r*t/100.0;
+    printf("Simple Interest is %f.",si);
+    return 0;
+}
+4. Write a program to calculate volume of a cuboid.
+#include<stdio.h>
+int main(){
+    int l,b,h,v;
+    printf("Enter length:");
+    scanf("%d",&l);
+    printf("Enter breadth:");
+    scanf("%d",&b);
+    printf("Enter height:");
+    scanf("%d",&h);
+    v=l*b*h;
+    printf("Volume is: %d.",v);
+    return 0;
+}
+
+5. Write a program to ask user about the cost price and selling price banana per dozen. Calculate the profit or loss earned upon selling 25 bananas.
+#include<stdio.h>
+int main(){
+    float cp,sp;
+    float p,l;
+    printf("Enter cost price of 1 dozen bananas:");
+    scanf("%f",&cp);
+    printf("Enter selling price of 1 dozen bananas:");
+    scanf("%f",&sp);
+    if(cp>sp){
+        l=(cp-sp)*25/12;
+        printf("Loss on 25 bananas is %f.",l);
+    }
+    else{
+        p=(sp-cp)*25/12;
+        printf("Profit on 25 bananas is %f.",p);
+    }
+    return 0;
+}
+6. Write a program to input a character from the user and print its ASCII code.
+#include<stdio.h>
+int main(){
+    char m;
+    printf("Enter a character:");
+    scanf("%c",&m);
+    printf("ASCII code is %d.",m);
+    return 0;
+}
+7. Write a program to input an ASCII code from the user and print its corresponding character.
+#include<stdio.h>
+int main(){
+    int c;
+    printf("Enter a number:");
+    scanf("%d",&c);
+    printf("Character is %c.",c);
+    return 0;
+}
+8. Write a program to input three characters from the user and display characters their corresponding ASCII codes.
+#include<stdio.h>
+int main(){
+    char a,b,c;
+    printf("Enter three characters:");
+    scanf("%c%c%c",&a,&b,&c);
+    printf("%c - %d\n",a,a);
+    printf("%c - %d\n",b,b);
+    printf("%c - %d",c,c);
+    return 0;
+}
+Output:
+Enter three characters:A
+B
+A - 65
+	// new line is also a character(Enter Button)
+ - 10
+B – 66
+So, we can change our input method like this:
+Enter three characters:ABC
+A - 65
+B - 66
+C - 67
+If, we do not want to change our input style then:
+#include<stdio.h>
+int main(){
+    char a,b,c;
+    printf("Enter three characters:");
+    scanf("%c %c %c",&a,&b,&c);
+    printf("%c - %d\n",a,a);
+    printf("%c - %d\n",b,b);
+    printf("%c - %d",c,c);
+    return 0;
+}
+Output:
+Enter three characters:A
+B
+C
+A - 65
+B - 66
+C - 67
+9. WAP to take date as an input in below given format and convert the date format and display the result as given below.
+User Input date format – “DD/MM/YYYY” (27/11/2022)
+Output format – “Day – DD , Month – MM , Year – YYYY” (Day – 27 , Month – 07 , Year – 2022)
+#include<stdio.h>
+int main(){
+    int d,m,y;
+    printf("Enter date like DD/MM/YYYY:");
+    scanf("%d/%d/%d",&d,&m,&y);
+    printf("Day - %d , Month - %d , Year- %d",d,m,y);
+    return 0;
+}
+
+
+10. WAP to take time as an input in below given format and convert the time format and display the result as given below.
+User Input date format – “HH:MM”
+Output format – “HH hour and MM Minute”
+#include<stdio.h>
+int main(){
+    int h,m;
+    printf("Enter time like HH:MM");
+    scanf("%d:%d",&h,&m);
+    printf("%d hour and %d Minute",h,m);
+    return 0;
+}	
