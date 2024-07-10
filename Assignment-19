@@ -1,0 +1,322 @@
+                          Assignment – 19
+                        Arrays and Functions
+1. Write a function to find the greatest number from the given array of any size. (TSRS)
+#include<stdio.h>
+int maxNo(int *arr,int);
+int main(){
+    int n,arr[n],i;
+    printf("Enter size of the array:");
+    scanf("%d",&n);
+    printf("Greatest number is %d.",maxNo(arr,n));
+    return 0;
+}
+int maxNo(int arr[],int n){
+    int i,max;
+    printf("Enter %d numbers:",n);
+    for(i=0;i<=n-1;i++)
+        scanf("%d",&arr[i]);
+    max=arr[0];
+    for(i=1;i<=n-1;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+    }
+    return max;
+}
+2. Write a program to find the smallest number from the given array of any size. (TSRS)
+#include<stdio.h>
+int minNo(int *arr,int);
+int main(){
+    int n,arr[n],i;
+    printf("Enter size of the array:");
+    scanf("%d",&n);
+    printf("Smallest number is %d.",minNo(arr,n));
+    return 0;
+}
+int minNo(int arr[],int n){
+    int i,min;
+    printf("Enter %d numbers:",n);
+    for(i=0;i<=n-1;i++)
+        scanf("%d",&arr[i]);
+    min=arr[0];
+    for(i=1;i<=n-1;i++){
+        if(arr[i]<min){
+            min=arr[i];
+        }
+    }
+    return min;
+}
+3. Write a function to sort an array of any size. (TSRN)
+#include<stdio.h>
+void minNo(int *arr,int);
+int main(){
+    int n,arr[n],i;
+    printf("Enter size of the array:");
+    scanf("%d",&n);
+    minNo(arr,n);
+    return 0;
+}
+void minNo(int arr[],int n){
+    int i,temp,round;
+    printf("Enter %d numbers:",n);
+    for(i=0;i<=n-1;i++)
+        scanf("%d",&arr[i]);
+    for(round=1;round<=n-1;round++){
+        for(i=0;i<=(n-1)-round;i++){
+            if(arr[i]>arr[i+1]){
+                temp=arr[i];
+                arr[i]=arr[i+1];
+                arr[i+1]=temp;
+            }
+        }
+    }
+    for(i=0;i<=n-1;i++){
+        printf("%d ",arr[i]);
+    }
+}
+
+4. Write a function to rotate an array by n position in d direction. The d is an indicative value for left and right. (For example, if array of size 5 is [32, 29, 40, 12, 70]; n is 2 and d is left, then the resulting array after left rotation 2 times is [40, 12, 70, 32, 29]) (TSRN)
+#include <stdio.h>
+void rotate(int [],int,int,int);
+int main(){
+    int i,size,d,n;
+    printf("Enter size of the array:");
+    scanf("%d",&size);
+    int arr[size];
+    printf("Enter %d numbers:",size);
+    for(i=0;i<size;i++)
+        scanf("%d",&arr[i]);
+    printf("Enter 1 for right rotation:\n");
+    printf("Enter 0 for left rotation:\n");
+    scanf("%d",&d);
+    printf("How many elements do you want to rotate:");
+    scanf("%d",&n);
+    rotate(arr,size,d,n);
+    return 0;
+}
+void rotate(int arr[],int size,int d,int n){
+    int i,temp;
+    if(d==1){
+        while(n){
+            temp=arr[size-1];
+            for(i=size-n;i>=0;i--){
+                arr[i+1]=arr[i];
+            }
+            arr[0]=temp;
+            n--;
+        }
+    }
+    else{
+        while(n){
+            temp=arr[0];
+            for(i=1;i<size;i++){
+                arr[i-1]=arr[i];
+            }
+            arr[size-1]=temp;
+            n--;
+        }
+    }
+    for(i=0;i<size;i++)
+        printf("%d ",arr[i]);
+}
+5. Write a function to find the first occurrence of adjacent duplicate values in the array. Function has to return the value of the element. 
+#include<stdio.h>
+int adjacent_duplicate(int [],int);
+int main(){
+    int a[]={10,20,50,60,40,50,50,18,18,18};
+    int x=adjacent_duplicate(a,10);
+    if(x)
+        printf("Value is %d.",x);
+    else
+        printf("No adjacent value found.");
+    return 0;
+}
+int adjacent_duplicate(int a[],int size){
+    int i;
+    for(i=0;i<size-1;i++){
+        if(a[i]==a[i+1])
+            return a[i];
+    }
+    return 0;
+}
+6. Write a function to swap two elements of given array with specified indices.
+#include<stdio.h>
+void swap(int [],int,int);
+int main(){
+    int a[]={10,20,30,40,50},i1,i2;
+    printf("Enter index number of the first value:");
+    scanf("%d",&i1);
+    printf("Enter index number of the second value:");
+    scanf("%d",&i2);
+    swap(a,i1,i2);
+    return 0;
+}
+void swap(int a[5],int i1,int i2){
+    int temp;
+    temp=a[i1];
+    a[i1]=a[i2];
+    a[i2]=temp;
+    printf("Now array is:\n");
+    for(int i=0;i<5;i++)
+        printf("%d ",a[i]);
+}
+7. Write a function to count a total number of duplicate elements in an array. (Means elements that occurs 2 times in an array)
+#include<stdio.h>
+int count_duplicate(int [],int);
+void sort(int [],int);
+int main(){
+    int a[10]={10,20,30,40,50,50,10,18,18,18};
+    sort(a,10);
+    printf("Now array is:\n");
+    for(int i=0;i<=9;i++)
+        printf("%d ",a[i]);
+    printf("\nCount of duplicate vaues is %d.",count_duplicate(a,10));
+    return 0;
+}
+int count_duplicate(int a[],int size){
+    int i,j,count=0;
+    i=0;
+    j=1;
+    while(i<=size-2){
+        if(a[i]==a[j])
+        count++;
+        while(a[i]==a[j])
+            j++;
+        i=j;
+        j=j+1;
+    }
+    return count;
+}
+void sort(int a[],int size){
+    int i,temp,round;
+    for(round=1;round<=9;round++){
+        for(i=0;i<=9-round;i++){
+            if(a[i]>a[i+1]){
+                temp=a[i+1];
+                a[i+1]=a[i];
+                a[i]=temp;
+            }
+        }
+    }
+}
+8. Write a function to print all unique elements in an array.
+#include<stdio.h>
+void print_unique(int [],int);
+void sort(int [],int);
+int main(){
+    int a[10]={10,20,30,40,50,50,10,18,18,18};
+    sort(a,10);
+    printf("Now array is:\n");
+    for(int i=0;i<=9;i++)
+        printf("%d ",a[i]);
+    print_unique(a,10);
+    return 0;
+}
+void print_unique(int a[],int size){
+    int i,j;
+    i=0;
+    j=1;
+    printf("\n");
+    while(i<=size-2){
+        printf("%d ",a[i]);
+        while(a[i]==a[j])
+            j++;
+        i=j;
+        j=j+1;
+    }
+}
+void sort(int a[],int size){
+    int i,temp,round;
+    for(round=1;round<=9;round++){
+        for(i=0;i<=9-round;i++){
+            if(a[i]>a[i+1]){
+                temp=a[i+1];
+                a[i+1]=a[i];
+                a[i]=temp;
+            }
+        }
+    }
+}
+9. Write a function to merge two arrays of the same size sorted in descending order.
+#include<stdio.h>
+void mergeArrays(int [],int [],int [],int,int);
+void sortArray(int [],int);
+int main(){
+    int a[50],b[50],c[100];
+    int s1,s2,s3;
+    int i;
+    printf("Input the number of elements to be stored in the first array:");
+    scanf("%d",&s1);
+    printf("Input %d elements in the array:\n",s1);
+    for(i=0;i<s1;i++){
+        printf("element - %d:",i);
+        scanf("%d",&a[i]);
+    }
+    printf("Input the number of elements to be stored in the second array:");
+    scanf("%d",&s2);
+    printf("Input %d elements in the array:\n",s2);
+    for(i=0;i<s2;i++){
+        printf("element-%d:",i);
+        scanf("%d",&b[i]);
+    }
+    s3=s1+s2;
+    mergeArrays(a,b,c,s1,s2);
+    sortArray(c,s3);
+    for(i=0;i<s3;i++)
+        printf("%d ",c[i]);
+}
+void mergeArrays(int a[],int b[],int c[],int s1,int s2){
+    int i,j,k;
+    for(i=0;i<s1;i++){
+        c[i]=a[i];
+    }
+    for(j=0;j<s2;j++){
+        c[i]=b[j];
+        i++;
+    }
+}
+void sortArray(int c[],int size){
+    int i,round,temp;
+    for(round=1;round<=size-1;round++){
+        for(i=0;i<=(size-1)-round;i++){
+            if(c[i]>c[i+1]){
+                temp=c[i];
+                c[i]=c[i+1];
+                c[i+1]=temp;
+            }
+        }
+    }
+}
+10. Write a function to count the frequency of each element of an array.
+#include<stdio.h>
+void sortArray(int [],int);
+void frequency(int [],int);
+int main(){
+    int c[10]={10,30,10,20,50,50,18,18,18,70},i;
+    frequency(c,10);
+    return 0;
+}
+void sortArray(int c[],int size){
+    int i,round,temp;
+    for(round=1;round<=size-1;round++){
+        for(i=0;i<=(size-1)-round;i++){
+            if(c[i]>c[i+1]){
+                temp=c[i];
+                c[i]=c[i+1];
+                c[i+1]=temp;
+            }
+        }
+    }
+}
+void frequency(int c[],int size){
+    int i=0,j=1;
+    sortArray(c,10);
+    while(i<=size-2){
+        printf("%d",c[i]);
+        while(c[i]==c[j])
+            j++;
+        printf("-%d\n",j-i);
+        i=j;
+        j=i+1;
+    }
+}
